@@ -11,3 +11,6 @@ Schema Registry:
 
 - Schema Registry provides a centralized repository for managing and validating schemas for topic message data, and for serialization and deserialization of the data over the network.
 - Schema Registry is a key component for data governance, helping to ensure data quality, adherence to standards, visibility into data lineage, audit capabilities, collaboration across teams, efficient application development protocols, and system performance.
+
+Start browser from Ubuntu WSL:
+- cmd.exe /C start http://localhost
