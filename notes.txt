@@ -14,3 +14,7 @@ Schema Registry:
 
 Start browser from Ubuntu WSL:
 - cmd.exe /C start http://localhost
+
+Create Python enviroment and activate it:
+$ python3 -m venv test-env
+$ source test-env/bin/activate
