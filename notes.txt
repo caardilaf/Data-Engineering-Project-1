@@ -1,4 +1,13 @@
-Airflow
+Apache Airflow
 
 - Operators: template for a predefined Task, that you can just define declaratively inside your DAG.
 - Catchup: perform scheduler catchup (or only run latest)? Defaults to True
+
+Apache Zookeeper:
+
+- ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.
+
+Schema Registry:
+
+- Schema Registry provides a centralized repository for managing and validating schemas for topic message data, and for serialization and deserialization of the data over the network.
+- Schema Registry is a key component for data governance, helping to ensure data quality, adherence to standards, visibility into data lineage, audit capabilities, collaboration across teams, efficient application development protocols, and system performance.

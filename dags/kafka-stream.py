@@ -1,12 +1,17 @@
+"""Module that manages Kafka Streaming service."""
+
 import requests
+import json
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+
 
 DEFAULT_ARGS = {
     "owner": "airscholar",
     "start_date": datetime(2024, 2, 1, 10,00 ,00),
 }
+
 
 def get_data() -> str:
     """Retrieve data from artificial user with each call"""
@@ -53,8 +58,13 @@ def format_data(raw_user_data: dict) -> dict:
     return user_data
 
     
-def stream_data():
-    pass
+def stream_data() -> str:
+    """Get data from API and format it"""
+
+    api_response = get_data()
+    format_response = format_data(raw_user_data=api_response)
+
+    return json.dumps(format_response)
 
 
 with DAG(
@@ -72,7 +82,6 @@ with DAG(
 
 if __name__ == "__main__":
 
-    data = get_data()
-    data_formatted = format_data(data)
+    data_formatted = stream_data()
 
-    print(data)
+    print(data_formatted)
