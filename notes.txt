@@ -7,14 +7,22 @@ Apache Zookeeper:
 
 - ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.
 
+Apache Kafka:
+
+- Broker: server in the cluster this will receive and send the data. Each Kafka broker is identified with an ID (integer). Each broker will have certain topic partitions. All the topic partitions data is Distributed across all brokers (load balanced).
+- Cluester: multiple Kafka brokers.
+- Bootstrap Servers: comma-separated list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
+
 Schema Registry:
 
 - Schema Registry provides a centralized repository for managing and validating schemas for topic message data, and for serialization and deserialization of the data over the network.
 - Schema Registry is a key component for data governance, helping to ensure data quality, adherence to standards, visibility into data lineage, audit capabilities, collaboration across teams, efficient application development protocols, and system performance.
 
 Start browser from Ubuntu WSL:
+
 - cmd.exe /C start http://localhost
 
 Create Python enviroment and activate it:
+
 $ python3 -m venv test-env
 $ source test-env/bin/activate

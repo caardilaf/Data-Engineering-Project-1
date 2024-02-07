@@ -2,9 +2,12 @@
 
 import requests
 import json
+import time
+
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from kafka import KafkaProducer
 
 
 DEFAULT_ARGS = {
@@ -58,13 +61,14 @@ def format_data(raw_user_data: dict) -> dict:
     return user_data
 
     
-def stream_data() -> str:
-    """Get data from API and format it"""
+def stream_data() -> None:
+    """Get data from API, format it and stream it to Kafka"""
 
     api_response = get_data()
     format_response = format_data(raw_user_data=api_response)
 
-    return json.dumps(format_response)
+    producer = KafkaProducer(bootstrap_servers=["localhost:9092"], max_block_ms=5000)
+    producer.send("users_created", json.dumps(format_response).encode("utf-8"))
 
 
 with DAG(
@@ -82,6 +86,5 @@ with DAG(
 
 if __name__ == "__main__":
 
-    data_formatted = stream_data()
+    stream_data()
 
-    print(data_formatted)
