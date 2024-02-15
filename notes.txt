@@ -1,6 +1,7 @@
 Apache Airflow
 
-- Tutorial: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
+- Tutorial 1: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
+- Tutorial 2: https://airflow.apache.org/docs/docker-stack/build.html#adding-a-new-pypi-package
 - Operators: template for a predefined Task, that you can just define declaratively inside your DAG.
 - Catchup: perform scheduler catchup (or only run latest)? Defaults to True
 
