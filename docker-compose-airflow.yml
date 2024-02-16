@@ -281,3 +281,7 @@ services:
 
 volumes:
   postgres-db-volume:
+
+networks:
+  confluent:
+    external: true
