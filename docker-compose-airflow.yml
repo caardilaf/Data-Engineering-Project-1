@@ -98,7 +98,7 @@ services:
       start_period: 5s
     restart: always
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   redis:
     image: redis:latest
@@ -112,7 +112,7 @@ services:
       start_period: 30s
     restart: always
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   airflow-webserver:
     <<: *airflow-common
@@ -131,7 +131,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   airflow-scheduler:
     <<: *airflow-common
@@ -148,7 +148,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   airflow-worker:
     <<: *airflow-common
@@ -173,7 +173,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   airflow-triggerer:
     <<: *airflow-common
@@ -190,7 +190,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   airflow-init:
     <<: *airflow-common
@@ -256,7 +256,7 @@ services:
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   airflow-cli:
     <<: *airflow-common
@@ -271,7 +271,7 @@ services:
       - -c
       - airflow
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
   # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
   # or by explicitly targeted on the command line e.g. docker-compose up flower.
@@ -295,11 +295,11 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - confluent
+      - data-engineering-project-1_confluent
 
 volumes:
   postgres-db-volume:
 
 networks:
-  confluent:
+  data-engineering-project-1_confluent:
     external: true
